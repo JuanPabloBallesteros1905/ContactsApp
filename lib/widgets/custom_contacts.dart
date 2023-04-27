@@ -8,70 +8,59 @@ class CustomContacs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Contactos> _contactos = [
-      Contactos('Juan', '3022704764', 'Ballesteros'),
-      Contactos('Nancy', '3022704764', 'Ballesteros'),
-      Contactos('Jefferson', '3022704764', 'Ballesteros'),
-      Contactos('Carmen', '3022704764', 'Ballesteros'),
-      Contactos('Juan', '3022704764', 'Ballesteros'),
-      Contactos('Juan', '3022704764', 'Ballesteros'),
-      Contactos('Juan', '3022704764', 'Ballesteros'),
-      Contactos('Juan', '3022704764', 'Ballesteros'),
-      Contactos('Juan', '3022704764', 'Ballesteros'),
-      Contactos('Juan', '3022704764', 'Ballesteros'),
-      Contactos('Juan', '3022704764', 'Ballesteros'),
-      Contactos('Juan', '3022704764', 'Ballesteros'),
-      Contactos('Juan', '3022704764', 'Ballesteros'),
-      Contactos('Juan', '3022704764', 'Ballesteros'),
-      Contactos('Juan', '3022704764', 'Ballesteros'),
-      Contactos('Juan', '3022704764', 'Ballesteros'),
-      Contactos('Juan', '3022704764', 'Ballesteros'),
-    ];
+    final List<Contactos> contactos = [];
 
     return Column(
       children: [
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 15),
-          height: MediaQuery.of(context).size.height * 0.7,
+          height: MediaQuery.of(context).size.height * 0.65,
           width: double.infinity,
           child: SingleChildScrollView(
-              child: Column(children: [
-            ..._contactos
-                .map((e) => ClipRRect(
-                  borderRadius: BorderRadius.circular(30),
-                  child: Card(
-                        child: Column(
-                          children: [
-                            ListTile(
-                              title: Text('${e.nombre} ${e.apellido} '),
-                              subtitle: Text('${e.numero}'),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: const [
-                                  Icon(
-                                    Icons.delete,
-                                    color: Colors.red,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
-                                  ),
-                                    Icon(
-                                    Icons.phone,
-                                    color: Colors.green,
-                                  ),
-                                ],
+            child: Column(
+              children: [
+                ...contactos
+                    .map(
+                      (e) => ClipRRect(
+                        borderRadius: BorderRadius.circular(30),
+                        child: Card(
+                          elevation: 0,
+                          child: Column(
+                            children: [
+                              ListTile(
+                                title: Text('${e.nombre} ${e.apellido} '),
+                                subtitle: Text('${e.numero}'),
                               ),
-                            )
-                          ],
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: const [
+                                    Icon(
+                                      Icons.delete,
+                                      color: Colors.red,
+                                    ),
+                                    Icon(
+                                      Icons.phone,
+                                      color: Colors.green,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                ))
-                .toList()
-          ])),
+                    )
+                    .toList()
+              ],
+            ),
+          ),
         ),
       ],
     );

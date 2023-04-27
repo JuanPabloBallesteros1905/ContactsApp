@@ -1,5 +1,5 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:app_ontactos/widgets/widgets.dart';
 
 class ScrollableButtomSheet extends StatelessWidget {
@@ -8,19 +8,12 @@ class ScrollableButtomSheet extends StatelessWidget {
     return Scaffold(
       body: BounceInDown(
         child: DraggableScrollableSheet(
-            snap: false,
-            initialChildSize: 0.9,
-            minChildSize: 0.1,
+            initialChildSize: 0.85,
+            minChildSize: 0.85,
             maxChildSize: 1,
             builder: (context, scrollController) {
               return Container(
                   width: double.infinity,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10),
-                    ),
-                  ),
                   child: _ListForm(controller: scrollController));
             }),
       ),
@@ -28,51 +21,77 @@ class ScrollableButtomSheet extends StatelessWidget {
   }
 }
 
-class _ListForm extends StatelessWidget {
+class _ListForm extends StatefulWidget {
   final ScrollController controller;
-
   _ListForm({required this.controller});
+
+  @override
+  State<_ListForm> createState() => _ListFormState();
+}
+
+class _ListFormState extends State<_ListForm> {
+  final na = TextEditingController();
+
+  final lt = TextEditingController();
+
+  final number = TextEditingController();
+
+  String n = '';
+
+  String lts = '';
+
+  String numb = '';
 
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: const [
+      controller: widget.controller,
+      children: [
         Padding(
-          padding: EdgeInsets.all(8.0),
-          child: CustomTextInput(),
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          child: Column(
+            children: [
+              CustomTextInput(
+                controller: na,
+                labels: 'Nombre',
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              CustomTextInput(
+                controller: lt,
+                labels: 'Apellido',
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              CustomTextInput(
+                controller: number,
+                labels: 'Numero',
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+            ],
+          ),
         ),
         Padding(
-          padding: EdgeInsets.all(8.0),
-          child: CustomTextInput(),
-        ),
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: CustomTextInput(),
-        ),
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: CustomTextInput(),
-        ),
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: CustomTextInput(),
-        ),
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: CustomTextInput(),
-        ),
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: CustomTextInput(),
-        ),
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: CustomTextInput(),
-        ),
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: CustomTextInput(),
-        ),
+          padding: const EdgeInsets.all(90),
+          child: ElevatedButton(
+            onPressed: () {
+              n = na.text;
+              lts = lt.text;
+              numb = number.text;
+              print('NOMBRE: $n');
+              print('APELLIDO: $lts');
+              print('NUMERO: $numb');
+
+              Navigator.pop(context);
+            },
+            style: ElevatedButton.styleFrom(),
+            child: const Text('Agregar'),
+          ),
+        )
       ],
     );
   }

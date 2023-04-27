@@ -8,7 +8,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int selecI = 0;
+  int _selecI = 0;
 
   final List<Widget> _pages = [CustomHome(), ContactsScreen(), ProfileScreen()];
 
@@ -16,14 +16,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: _pages[selecI],
+      drawer: _selecI == 0 || _selecI == 2 ?  null : const Drawer(),
+      body: _pages[_selecI],
 
       //BottomNavigation
       bottomNavigationBar: NavigationBar(
-          selectedIndex: selecI,
+          selectedIndex: _selecI,
           onDestinationSelected: (value) {
             setState(() {
-              selecI = value;
+              _selecI = value;
             });
           },
           destinations: const [

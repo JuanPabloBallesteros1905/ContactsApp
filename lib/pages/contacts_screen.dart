@@ -7,34 +7,29 @@ class ContactsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
-          child: Column(
-              children: [
+      child: Column(
+        children: [
+          const SizedBox(height: 15),
           const CustomContacs(),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
             child: OutlinedButton(
               style: OutlinedButton.styleFrom(
-                  side: BorderSide(color: Themes.primary),
+                  side: const BorderSide(color: Themes.primary),
                   shape: const StadiumBorder(),
                   foregroundColor: Colors.black),
               onPressed: () {
                 showModalBottomSheet(
                     context: context,
                     builder: (context) => ScrollableButtomSheet());
-        
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context) => ScrollableButtomSheet(),
-                //     ));
               },
               child: const Text(
                 'Agregar nuevo contacto',
               ),
             ),
           ),
-              ],
-            ),
-        ));
+        ],
+      ),
+    ));
   }
 }

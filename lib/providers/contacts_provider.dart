@@ -1,3 +1,4 @@
+import 'package:app_ontactos/clasedemuestra/contactos.dart';
 import 'package:flutter/material.dart';
 
 class ContactsProvider extends ChangeNotifier {
@@ -5,5 +6,14 @@ class ContactsProvider extends ChangeNotifier {
     print('INICIALIZADO');
   }
 
-  Future<void> chanagePage() async {}
+  List<Contactos> contactos = [];
+
+  void addContact(String name, String lt, String number) {
+
+
+    
+
+  }
+
+  void deleteContact(){}
 }
