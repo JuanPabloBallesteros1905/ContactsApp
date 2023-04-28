@@ -9,12 +9,12 @@ class ContactsProvider extends ChangeNotifier {
   List<Contactos> newContact = [];
 
   void addContact([String? name, String? lt, String? number]) {
-  //   newContact = [
-  //     Contactos(name, number, lt),
-  //   ];
-  //   notifyListeners();
-  // }
+    newContact = [
+      Contactos(name, number, lt),
+    ];
+    notifyListeners();
+  }
 
   void deleteContact() {}
 }
-}
+
