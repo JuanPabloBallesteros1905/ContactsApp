@@ -1,5 +1,7 @@
 import 'package:app_ontactos/clasedemuestra/contactos.dart';
+import 'package:app_ontactos/providers/contacts_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CustomContacs extends StatelessWidget {
   const CustomContacs({
@@ -8,7 +10,7 @@ class CustomContacs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Contactos> contactos = [];
+    final contactsProvider = Provider.of<ContactsProvider>(context);
 
     return Column(
       children: [
@@ -19,7 +21,7 @@ class CustomContacs extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                ...contactos
+                ...contactsProvider.newContact
                     .map(
                       (e) => ClipRRect(
                         borderRadius: BorderRadius.circular(30),
@@ -68,3 +70,11 @@ class CustomContacs extends StatelessWidget {
 }
 
 //* TODO: aqui se agregan los contactos y se muestran en la app
+
+Widget noContact() {
+  return const Center(
+    child: Text(
+      'Aqui se mostraran tus contactos cuando añadas uno',
+    ),
+  );
+}

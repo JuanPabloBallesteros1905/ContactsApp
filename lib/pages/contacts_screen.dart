@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:app_ontactos/providers/contacts_provider.dart';
 import 'package:app_ontactos/themes/themes.dart';
+import 'package:provider/provider.dart';
 import '../widgets/widgets.dart';
 
 class ContactsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+
+    final contactsProvider = Provider.of<ContactsProvider>(context);
+
+    final noConats = contactsProvider.newContact;
+
+
+    return noConats.isEmpty ? noContact() : 
+    
+    Scaffold(
         body: SingleChildScrollView(
       child: Column(
         children: [

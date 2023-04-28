@@ -3,17 +3,18 @@ import 'package:flutter/material.dart';
 
 class ContactsProvider extends ChangeNotifier {
   ContactsProvider() {
-    print('INICIALIZADO');
+    addContact();
   }
 
-  List<Contactos> contactos = [];
+  List<Contactos> newContact = [];
 
-  void addContact(String name, String lt, String number) {
+  void addContact([String? name, String? lt, String? number]) {
+  //   newContact = [
+  //     Contactos(name, number, lt),
+  //   ];
+  //   notifyListeners();
+  // }
 
-
-    
-
-  }
-
-  void deleteContact(){}
+  void deleteContact() {}
+}
 }

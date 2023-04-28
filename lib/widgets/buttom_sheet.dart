@@ -1,6 +1,8 @@
+import 'package:app_ontactos/providers/contacts_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:app_ontactos/widgets/widgets.dart';
+import 'package:provider/provider.dart';
 
 class ScrollableButtomSheet extends StatelessWidget {
   @override
@@ -44,6 +46,9 @@ class _ListFormState extends State<_ListForm> {
 
   @override
   Widget build(BuildContext context) {
+
+    final contactsProvider = Provider.of<ContactsProvider>(context);
+
     return ListView(
       controller: widget.controller,
       children: [
@@ -82,9 +87,8 @@ class _ListFormState extends State<_ListForm> {
               n = na.text;
               lts = lt.text;
               numb = number.text;
-              print('NOMBRE: $n');
-              print('APELLIDO: $lts');
-              print('NUMERO: $numb');
+              contactsProvider.addContact(n, lts, numb);
+  
 
               Navigator.pop(context);
             },
