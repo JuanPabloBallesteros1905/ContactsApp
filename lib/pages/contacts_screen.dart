@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
- 
-import 'package:app_ontactos/themes/themes.dart';
- 
 import '../widgets/widgets.dart';
+import 'package:app_ontactos/themes/themes.dart';
 
 class ContactsScreen extends StatelessWidget {
+  const ContactsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-   
-
- 
-
     return Scaffold(
         body: SingleChildScrollView(
       child: Column(
@@ -27,7 +23,7 @@ class ContactsScreen extends StatelessWidget {
               onPressed: () {
                 showModalBottomSheet(
                     context: context,
-                    builder: (context) => ScrollableButtomSheet());
+                    builder: (context) => const ScrollableButtomSheet());
               },
               child: const Text(
                 'Agregar nuevo contacto',

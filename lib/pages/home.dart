@@ -3,6 +3,8 @@ import 'package:app_ontactos/pages/pages.dart';
 import '../widgets/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -10,7 +12,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selecI = 0;
 
-  final List<Widget> _pages = [CustomHome(), ContactsScreen(), ProfileScreen()];
+  final List<Widget> _pages = [const CustomHome(), const ContactsScreen(), const ProfileScreen()];
 
   @override
   Widget build(BuildContext context) {

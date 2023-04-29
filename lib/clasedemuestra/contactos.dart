@@ -1,7 +1,7 @@
 class Contactos {
-  String? _nombre;
-  String? _apellido;
-  String? _numero;
+  final String? _nombre;
+  final String? _apellido;
+  final String? _numero;
 
   Contactos(this._nombre, this._numero, this._apellido);
 
@@ -16,4 +16,6 @@ class Contactos {
   set apellido(String? apellido) => _apellido;
 
   set numero(String? numero) => _numero;
+
+  void remove(Type contactos) {}
 }

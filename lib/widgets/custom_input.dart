@@ -6,7 +6,7 @@ class CustomTextInput extends StatelessWidget {
   final String? labels;
   final TextEditingController? controller;
 
-  const CustomTextInput({this.hint, this.icon, this.labels,  this.controller});
+  const CustomTextInput({super.key, this.hint, this.icon, this.labels,  this.controller});
 
   @override
   Widget build(BuildContext context) {
