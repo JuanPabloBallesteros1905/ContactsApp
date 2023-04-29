@@ -13,62 +13,69 @@ class CustomContacs extends StatelessWidget {
   Widget build(BuildContext context) {
     final contactsProvider = Provider.of<ContactsProvider>(context);
 
-    return Column(
-      children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          height: MediaQuery.of(context).size.height * 0.65,
-          width: double.infinity,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                ...contactsProvider.newContact
-                    .map(
-                      (e) => ClipRRect(
-                        borderRadius: BorderRadius.circular(30),
-                        child: Card(
-                          elevation: 0,
-                          child: Column(
-                            children: [
-                              ListTile(
-                                title: Text('${e.nombre} ${e.apellido} '),
-                                subtitle: Text('${e.numero}'),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
+    final listContact = contactsProvider.newContact;
+
+    return listContact.isEmpty
+        ? const NoContact()
+        : Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                height: MediaQuery.of(context).size.height * 0.65,
+                width: double.infinity,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      ...contactsProvider.newContact
+                          .map(
+                            (e) => ClipRRect(
+                              borderRadius: BorderRadius.circular(30),
+                              child: Card(
+                                elevation: 0,
+                                child: Column(
                                   children: [
-                                    IconButton(
-                                      onPressed: () {
-                                        contactsProvider.deleteContact();
-                                      },
-                                      icon: const Icon(Icons.delete),
+                                    ListTile(
+                                      title: Text('${e.nombre} ${e.apellido} '),
+                                      subtitle: Text('${e.numero}'),
                                     ),
-                                    const Icon(
-                                      Icons.phone,
-                                      color: Colors.green,
-                                    ),
-                                    const Icon(
-                                      Icons.star,
-                                      color: Colors.amber,
-                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          IconButton(
+                                            onPressed: () {
+                                              contactsProvider.deleteContact(e);
+                                            },
+                                            icon: const Icon(
+                                              Icons.delete,
+                                              color: Colors.red,
+                                            ),
+                                          ),
+                                          const Icon(
+                                            Icons.phone,
+                                            color: Colors.green,
+                                          ),
+                                          IconButton(onPressed: (){
+                                            contactsProvider.saveContacts();
+                                          }, icon: contactsProvider.press ? Icon(Icons.star, color: Colors.amber,) : Icon(Icons.star_border, color: Colors.amber ),)
+                                           
+                                        ],
+                                      ),
+                                    )
                                   ],
                                 ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    )
-                    .toList()
-              ],
-            ),
-          ),
-        ),
-      ],
-    );
+                              ),
+                            ),
+                          )
+                          .toList()
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          );
   }
 }
 
