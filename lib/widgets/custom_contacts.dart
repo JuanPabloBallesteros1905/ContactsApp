@@ -1,5 +1,6 @@
 // ignore_for_file: sized_box_for_whitespace
 
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:app_ontactos/providers/contacts_provider.dart';
@@ -30,41 +31,55 @@ class CustomContacs extends StatelessWidget {
                           .map(
                             (e) => ClipRRect(
                               borderRadius: BorderRadius.circular(30),
-                              child: Card(
-                                elevation: 0,
-                                child: Column(
-                                  children: [
-                                    ListTile(
-                                      title: Text('${e.nombre} ${e.apellido} '),
-                                      subtitle: Text('${e.numero}'),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          IconButton(
-                                            onPressed: () {
-                                              contactsProvider.deleteContact(e);
-                                            },
-                                            icon: const Icon(
-                                              Icons.delete,
-                                              color: Colors.red,
-                                            ),
-                                          ),
-                                          const Icon(
-                                            Icons.phone,
-                                            color: Colors.green,
-                                          ),
-                                          IconButton(onPressed: (){
-                                            contactsProvider.saveContacts();
-                                          }, icon: contactsProvider.press ? Icon(Icons.star, color: Colors.amber,) : Icon(Icons.star_border, color: Colors.amber ),)
-                                           
-                                        ],
+                              child: BounceInDown(
+                                duration: const Duration(milliseconds: 500),
+                                child: Card(
+                                  elevation: 0,
+                                  child: Column(
+                                    children: [
+                                      ListTile(
+                                        title:
+                                            Text('${e.nombre} ${e.apellido} '),
+                                        subtitle: Text('${e.numero}'),
                                       ),
-                                    )
-                                  ],
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            IconButton(
+                                              onPressed: () {
+                                                contactsProvider
+                                                    .deleteContact(e);
+                                              },
+                                              icon: const Icon(
+                                                Icons.delete,
+                                                color: Colors.red,
+                                              ),
+                                            ),
+                                            const Icon(
+                                              Icons.phone,
+                                              color: Colors.green,
+                                            ),
+                                            IconButton(
+                                              onPressed: () {
+                                                contactsProvider.saveContacts();
+                                              },
+                                              icon: contactsProvider.press
+                                                  ? const Icon(
+                                                      Icons.star,
+                                                      color: Colors.amber,
+                                                    )
+                                                  : const Icon(
+                                                      Icons.star_border,
+                                                      color: Colors.amber),
+                                            )
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -79,7 +94,8 @@ class CustomContacs extends StatelessWidget {
   }
 }
 
-//* TODO: aqui se agregan los contactos y se muestran en la app
+//* TODO: establecer condiciones a hora de llenar el formulario para evitar llenar los datos mal
+//* TODO: arreglar el tema de la estrella que añade a favoritos y hacer que coincida con el stado de true y false
 
 class NoContact extends StatelessWidget {
   const NoContact({super.key});

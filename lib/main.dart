@@ -37,6 +37,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-//* TODO: hacer que los inputs del fotmulario agarren de nuevo porque no están agarrando informacion 

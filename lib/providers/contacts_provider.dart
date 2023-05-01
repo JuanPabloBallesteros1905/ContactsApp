@@ -7,8 +7,11 @@ class ContactsProvider extends ChangeNotifier {
   bool press = false;
 
   addContact([String? n, String? lts, String? numb]) {
-    Contactos newContacts = Contactos(n, numb, lts);
-    newContact.add(newContacts);
+    if (n!.isEmpty || lts!.isEmpty || numb!.isEmpty) {
+    } else {
+      Contactos newContacts = Contactos(n, numb, lts);
+      newContact.add(newContacts);
+    }
 
     notifyListeners();
   }
@@ -21,7 +24,7 @@ class ContactsProvider extends ChangeNotifier {
 
   void saveContacts() {
     press = !press;
-    print(press);
+
     notifyListeners();
   }
 }
