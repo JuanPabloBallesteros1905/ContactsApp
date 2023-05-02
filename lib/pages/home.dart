@@ -1,6 +1,6 @@
+import '../widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:app_ontactos/pages/pages.dart';
-import '../widgets/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,13 +12,17 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selecI = 0;
 
-  final List<Widget> _pages = [const CustomHome(), const ContactsScreen(), const ProfileScreen()];
+  final List<Widget> _pages = [
+    const CustomHome(),
+    const ContactsScreen(),
+    const ProfileScreen()
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      drawer: _selecI == 0 || _selecI == 2 ?  null : const Drawer(),
+
       body: _pages[_selecI],
 
       //BottomNavigation
