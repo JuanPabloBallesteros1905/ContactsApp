@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:app_ontactos/clasedemuestra/contactos.dart';
 
 class ContactsProvider extends ChangeNotifier {
+
+  
   List<Contactos> newContact = [];
 
   bool press = false;
