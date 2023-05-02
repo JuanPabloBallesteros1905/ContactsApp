@@ -22,6 +22,10 @@ class ContactsProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+
+
+  //* TODO: Por implementar un metodo para guardar contactos favoritos
+
   void saveContacts() {
     press = !press;
 

@@ -14,7 +14,7 @@ class ContactsScreen extends StatelessWidget {
           const SizedBox(height: 15),
           const CustomContacs(),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
             child: OutlinedButton(
               style: OutlinedButton.styleFrom(
                   side: const BorderSide(color: Themes.primary),

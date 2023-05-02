@@ -10,6 +10,9 @@ class CustomContacs extends StatelessWidget {
     super.key,
   });
 
+
+ 
+
   @override
   Widget build(BuildContext context) {
     final contactsProvider = Provider.of<ContactsProvider>(context);
@@ -96,6 +99,8 @@ class CustomContacs extends StatelessWidget {
 
 //* TODO: establecer condiciones a hora de llenar el formulario para evitar llenar los datos mal
 //* TODO: arreglar el tema de la estrella que añade a favoritos y hacer que coincida con el stado de true y false
+//* TODO: Establecer advertencio a la hora de  eliminar contactos
+
 
 class NoContact extends StatelessWidget {
   const NoContact({super.key});
@@ -111,3 +116,6 @@ class NoContact extends StatelessWidget {
     );
   }
 }
+
+
+ 

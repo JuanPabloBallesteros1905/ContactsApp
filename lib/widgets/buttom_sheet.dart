@@ -1,5 +1,3 @@
- 
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:animate_do/animate_do.dart';
@@ -96,6 +94,7 @@ class _ListFormState extends State<_ListForm> {
               numb = number.text;
 
               contactsProvider.addContact(n, lts, numb);
+              guardadoCorrectamente(context);
 
               Navigator.pop(context);
             },
@@ -106,4 +105,14 @@ class _ListFormState extends State<_ListForm> {
       ],
     );
   }
+}
+
+void guardadoCorrectamente(BuildContext context) {
+  SnackBar snackBar = const SnackBar(
+   
+    duration: Duration(milliseconds: 1000),
+    content: Text('Guardado exitoso'),
+  );
+
+  ScaffoldMessenger.of(context).showSnackBar(snackBar);
 }
