@@ -1,7 +1,6 @@
 // ignore_for_file: avoid_unnecessary_containers
-
-import 'package:app_ontactos/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:app_ontactos/widgets/widgets.dart';
 
 class CustomHome extends StatelessWidget {
   const CustomHome({super.key});

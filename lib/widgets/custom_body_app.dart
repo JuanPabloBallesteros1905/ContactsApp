@@ -1,9 +1,9 @@
-import 'package:animate_do/animate_do.dart';
-import 'package:app_ontactos/providers/contacts_provider.dart';
-import 'package:app_ontactos/widgets/custom_contacts.dart';
-import 'package:app_ontactos/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:animate_do/animate_do.dart';
+import 'package:app_ontactos/widgets/widgets.dart';
+import 'package:app_ontactos/providers/contacts_provider.dart';
+
 
 class CustomBodyApp extends StatelessWidget {
   const CustomBodyApp({
@@ -25,7 +25,16 @@ class CustomBodyApp extends StatelessWidget {
             width: double.infinity,
             child: SingleChildScrollView(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      'Contactos destacados',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
                   ...contactProvider.favorites
                       .map(
                         (e) => ClipRRect(
@@ -46,12 +55,10 @@ class CustomBodyApp extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
                                       children: const [
-                                       
-                                         Icon(
+                                        Icon(
                                           Icons.phone,
                                           color: Colors.green,
                                         ),
-                                      
                                       ],
                                     ),
                                   )

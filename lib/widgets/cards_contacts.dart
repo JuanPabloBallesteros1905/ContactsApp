@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
-import 'package:app_ontactos/widgets/widgets.dart';
-
 import '../providers/contacts_provider.dart';
+import 'package:app_ontactos/widgets/widgets.dart';
 
 class CustomCardsContacts extends StatelessWidget {
   const CustomCardsContacts({super.key, required this.contactsProvider});
@@ -52,17 +51,13 @@ class CustomCardsContacts extends StatelessWidget {
                                     color: Colors.green,
                                   ),
                                   IconButton(
-                                    onPressed: () {
-                                      contactsProvider.saveContacts(e);
-                                    },
-                                    icon: contactsProvider.press
-                                        ? const Icon(
-                                            Icons.star,
-                                            color: Colors.amber,
-                                          )
-                                        : const Icon(Icons.star_border,
-                                            color: Colors.amber),
-                                  )
+                                      onPressed: () {
+                                        contactsProvider.saveContacts(e);
+                                      },
+                                      icon: const Icon(
+                                        Icons.star,
+                                        color: Colors.amber,
+                                      ))
                                 ],
                               ),
                             )
